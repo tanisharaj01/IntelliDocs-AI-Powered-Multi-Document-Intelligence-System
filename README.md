@@ -12,12 +12,12 @@ Organizations have vast amounts of knowledge locked inside unstructured document
 
 ## Key Features
 
-- 📄 **Universal PDF Support**: Upload any PDF document (reports, manuals, papers).
-- 🔍 **Hybrid Retrieval**: Combines Semantic (Vector) Search and Keyword (BM25) Search to maximize retrieval accuracy.
-- 🎯 **Reranking**: Retrieves multiple candidate chunks and reranks them to send only the most relevant context to the LLM.
-- 🔗 **Citation-Based Answers**: Every answer provides the source document and page number, ensuring traceability and trust.
-- 🛡️ **Hallucination Control**: If the uploaded documents do not contain the answer, the system gracefully responds with "I couldn't find enough information in the uploaded documents to answer this question."
-- 💬 **Conversation History**: Supports follow-up questions for a natural chat experience.
+- **Universal PDF Support**: Upload any PDF document (reports, manuals, papers).
+- **Hybrid Retrieval**: Combines Semantic (Vector) Search and Keyword (BM25) Search to maximize retrieval accuracy.
+- **Reranking**: Retrieves multiple candidate chunks and reranks them to send only the most relevant context to the LLM.
+- **Citation-Based Answers**: Every answer provides the source document and page number, ensuring traceability and trust.
+- **Hallucination Control**: If the uploaded documents do not contain the answer, the system gracefully responds with "I couldn't find enough information in the uploaded documents to answer this question."
+- **Conversation History**: Supports follow-up questions for a natural chat experience.
 
 ## Architecture
 
