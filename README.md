@@ -69,5 +69,3 @@ flowchart LR
 - "Summarize the key findings in the introduction section."
 - "What is the capital of France?" -> *System will abstain to prevent hallucinations.*
 
-## Deployment
-*Deployment instructions and live URL will be provided here.*
