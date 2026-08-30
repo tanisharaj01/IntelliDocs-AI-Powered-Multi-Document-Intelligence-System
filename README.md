@@ -1,4 +1,4 @@
-# IntelliDocs — AI-Powered Document Intelligence System
+# IntelliDocs — AI-Powered Multi-Document Intelligence System
 
 <p align="center">
   <strong>A general-purpose, production-ready Retrieval-Augmented Generation (RAG) system for interrogating PDFs with high accuracy and citation-backed answers.</strong>
@@ -39,7 +39,7 @@ flowchart LR
 - **Backend**: FastAPI, Python
 - **Document Processing**: PyMuPDF
 - **Retrieval Engine**: OpenSearch (Hybrid Vector + Keyword Search)
-- **AI Models**: OpenAI (GPT-4o-mini for generation, text-embedding-3-small for embeddings)
+- **AI Models**: Google Gemini API (for generation and embeddings)
 
 ## Installation & Running Locally
 
@@ -48,14 +48,14 @@ flowchart LR
    pip install -r requirements.txt
    ```
 
-2. **Set your OpenAI API Key**:
+2. **Set your Google Gemini API Key**:
    ```bash
-   export OPENAI_API_KEY="your-api-key-here"
+   export GEMINI_API_KEY="your-api-key-here"
    ```
 
 3. **Start the FastAPI Backend**:
    ```bash
-   uvicorn app.main:app --host 0.0.0.1 --port 8000
+   uvicorn app.main:app --host 0.0.0.0 --port 8000
    ```
 
 4. **Start the Streamlit Frontend**:
