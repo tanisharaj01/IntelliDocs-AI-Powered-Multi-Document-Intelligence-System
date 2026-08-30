@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "expected_answer_snippet": "I couldn't find enough information",
+    "should_abstain": true,
+    "description": "Hallucination check: system should abstain if answer is not in the document."
+  },
+  {
+    "question": "What is IntelliDocs?",
+    "expected_answer_snippet": "Document Intelligence",
+    "should_abstain": false,
+    "description": "Basic retrieval check."
+  }
+]
