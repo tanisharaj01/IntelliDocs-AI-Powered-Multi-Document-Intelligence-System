@@ -1,7 +1,7 @@
 # IntelliDocs — AI-Powered Multi-Document Intelligence System
 
 <p align="center">
-  <strong>A general-purpose, production-ready Retrieval-Augmented Generation (RAG) system for interrogating PDFs with high accuracy and citation-backed answers.</strong>
+  <strong>A general-purpose,Retrieval-Augmented Generation (RAG) system for interrogating PDFs with high accuracy and citation-backed answers.</strong>
 </p>
 
 ## The Problem
