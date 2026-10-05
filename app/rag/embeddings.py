@@ -2,7 +2,7 @@
 
 Not a replacement for Cohere Embed v4 / Titan; the goal is to give the local
 PoC a stable, reproducible vector space so retrieval/RRF/grader logic can be
-validated offline. The interface mirrors a batch embedding API so the Bedrock
+validated offline. The interface mirrors a batch embedding API so the Google Gemini
 adapter can drop in later without changing callers.
 """
 

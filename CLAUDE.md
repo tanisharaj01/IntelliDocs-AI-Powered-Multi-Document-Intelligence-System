@@ -28,7 +28,7 @@ If the final prompt requires OpenSearch as the primary engine with seven exact m
 - Retrieval: OpenSearch hybrid lexical + vector retrieval
 - Storage: S3 for raw documents and ingestion artifacts
 - Cache: Redis conservative semantic caching
-- LLM/Embeddings: Bedrock or another enterprise-approved API
+- LLM/Embeddings: Google Gemini or another enterprise-approved API
 - Evaluation: DeepEval as primary framework; standard RAG metric definitions; OpenTelemetry/structured traces for debugging and observability
 - CI/CD: GitHub Actions
 - Local validation: Docker Compose
@@ -54,7 +54,7 @@ If the final prompt requires OpenSearch as the primary engine with seven exact m
 
 ## Local AWS CLI Access Note
 
-If the user explicitly asks to verify AWS/Bedrock model access or run local AWS CLI checks, use [`docs/AWS_CLI_ACCESS.md`](docs/AWS_CLI_ACCESS.md).
+If the user explicitly asks to verify AWS/Google Gemini model access or run local AWS CLI checks, use [`docs/AWS_CLI_ACCESS.md`](docs/AWS_CLI_ACCESS.md).
 
 Never write or commit AWS access keys, secret access keys, or session tokens. Use the existing local AWS CLI profile/SSO/IAM configuration.
 

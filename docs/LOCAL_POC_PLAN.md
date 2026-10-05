@@ -19,7 +19,7 @@ Prepared sample request files are available in [`sample_requests/README.md`](../
 
 ## Development Strategy
 
-Use local-first development. Keep application logic, RBAC, chunking, citation validation, graph transitions, and tests local. Include OpenSearch compatibility from the first implementation stage by using an adapter, mapping/query contract tests, and local OpenSearch in Docker Compose if feasible. Use a mock fallback only if local OpenSearch is too heavy for the machine. Use AWS only for explicit Bedrock model API compatibility checks unless the user requests cloud deployment.
+Use local-first development. Keep application logic, RBAC, chunking, citation validation, graph transitions, and tests local. Include OpenSearch compatibility from the first implementation stage by using an adapter, mapping/query contract tests, and local OpenSearch in Docker Compose if feasible. Use a mock fallback only if local OpenSearch is too heavy for the machine. Use AWS only for explicit Google Gemini model API compatibility checks unless the user requests cloud deployment.
 
 See [`docs/DEVELOPMENT_DEPLOYMENT_STRATEGY.md`](DEVELOPMENT_DEPLOYMENT_STRATEGY.md).
 

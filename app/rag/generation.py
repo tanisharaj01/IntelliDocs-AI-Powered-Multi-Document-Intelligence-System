@@ -1,6 +1,6 @@
 """Deterministic extractive answer composer.
 
-For the local PoC we do not call Bedrock. Instead the composer produces one
+For the local PoC we do not call Google Gemini. Instead the composer produces one
 atomic claim per cited chunk by quoting the chunk verbatim, with a citation
 made directly from the chunk's authorized metadata. This satisfies the
 zero-hallucination constraint exactly because:
@@ -10,7 +10,7 @@ zero-hallucination constraint exactly because:
 * every generated citation's chunk_id is by construction a member of the
   authorized retrieved context.
 
-The production version replaces this module with a guarded Bedrock call that
+The production version replaces this module with a guarded Google Gemini call that
 obeys the same contract; tests target the same assertions in both modes.
 """
 

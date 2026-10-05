@@ -49,7 +49,7 @@ Include exact commands for unit, integration, security, eval, and performance sm
 | Setting | File | Notes |
 | --- | --- | --- |
 | Environment values | `.env` / `.env.example` | local/private vs template |
-| Bedrock model IDs | `.env` / `.env.example` | generation, fast, judge, embedding, rerank |
+| Google Gemini model IDs | `.env` / `.env.example` | generation, fast, judge, embedding, rerank |
 | Retrieval top-k | `.env` / retrieval config | lexical/vector/fused/rerank/final |
 | RBAC roles | `sample_requests/users.json` and security code | roles, clearance, scopes |
 | Sample documents | `sample_corpus/` | synthetic corpus |

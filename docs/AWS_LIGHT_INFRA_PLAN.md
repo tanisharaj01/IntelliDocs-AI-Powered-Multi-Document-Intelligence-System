@@ -6,7 +6,7 @@ This is a future plan only. No immediate deployment is required. Development sho
 
 - S3 for raw corpus, normalized artifacts, chunk manifests, embeddings metadata, and eval datasets.
 - OpenSearch managed service for hybrid retrieval.
-- Bedrock for LLM and embedding APIs.
+- Google Gemini for LLM and embedding APIs.
 - Redis/ElastiCache optional for conservative semantic cache.
 - ECS Fargate optional for a simple containerized API if deployment is needed.
 - IAM roles with least privilege.

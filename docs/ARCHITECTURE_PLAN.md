@@ -30,5 +30,5 @@ Use Docker Compose with FastAPI, local OpenSearch or mock retrieval, optional Re
 
 ## Optional AWS Path
 
-Future path: S3, OpenSearch Service, Bedrock, optional ElastiCache, optional ECS Fargate, IAM, Secrets Manager/SSM, CloudWatch.
+Future path: S3, OpenSearch Service, Google Gemini, optional ElastiCache, optional ECS Fargate, IAM, Secrets Manager/SSM, CloudWatch.
 

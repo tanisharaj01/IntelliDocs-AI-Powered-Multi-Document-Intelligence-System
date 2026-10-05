@@ -28,7 +28,7 @@ After Stage 1 implementation, Claude Code must create [`docs/reports/STAGE_1_IMP
 
 ## AWS Verification Only
 
-Use [`docs/AWS_CLI_ACCESS.md`](AWS_CLI_ACCESS.md) only when the user explicitly asks for AWS/Bedrock verification or when local limitations require managed model API checks.
+Use [`docs/AWS_CLI_ACCESS.md`](AWS_CLI_ACCESS.md) only when the user explicitly asks for AWS/Google Gemini verification or when local limitations require managed model API checks.
 
 ## Final Assessment Writing Later
 

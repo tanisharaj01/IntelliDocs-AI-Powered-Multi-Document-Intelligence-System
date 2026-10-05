@@ -5,7 +5,7 @@ for the Tax Authority RAG system.
 
 It is intentionally **small and concrete**:
 
-- Bedrock stays managed and is consumed by the app at runtime.
+- Google Gemini stays managed and is consumed by the app at runtime.
 - S3 stores corpus artifacts and evaluation data.
 - OpenSearch provides hybrid retrieval.
 - Redis/ElastiCache provides semantic cache.
@@ -37,7 +37,7 @@ It is intentionally **small and concrete**:
 
 - This repository currently does **not** include the Terraform binary locally.
 - The skeleton is designed to be low-risk and easy for a DevOps team to extend.
-- Default region is `eu-central-1` to align with Bedrock usage in this project.
+- Default region is `eu-central-1` to align with Google Gemini usage in this project.
 
 ## Real Deployment Test Result
 

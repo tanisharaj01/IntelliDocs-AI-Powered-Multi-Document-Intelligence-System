@@ -18,13 +18,13 @@ This is better than all-local or all-cloud for the assignment.
 
 All-local development is cheap and fast, but it cannot fully validate:
 
-- Bedrock model invocation behavior;
+- Google Gemini model invocation behavior;
 - Haiku vs Sonnet latency/cost;
 - Cohere Embed/Rerank access;
 - AWS IAM/profile setup;
-- real Bedrock streaming behavior.
+- real Google Gemini streaming behavior.
 
-Use local mocks for most logic, but test Bedrock access separately when needed.
+Use local mocks for most logic, but test Google Gemini access separately when needed.
 
 ## Why Not All Cloud?
 
@@ -95,7 +95,7 @@ If local OpenSearch cannot run on the laptop, keep the adapter and tests structu
 
 Use AWS only for APIs that cannot be realistically mocked:
 
-- Bedrock Claude Haiku/Sonnet invocation;
+- Google Gemini Claude Haiku/Sonnet invocation;
 - Cohere Embed v4 invocation;
 - Cohere Rerank 3.5 invocation;
 - optional Titan embedding fallback;
@@ -135,7 +135,7 @@ Recommended production path:
 
 - FastAPI on Lambda + API Gateway + Mangum for lightweight/variable traffic;
 - ECS Fargate or App Runner if cold starts, streaming, or sustained traffic require it;
-- Bedrock for LLM/embedding/rerank APIs;
+- Google Gemini for LLM/embedding/rerank APIs;
 - OpenSearch Service for hybrid retrieval;
 - ElastiCache Redis for semantic cache;
 - S3 for raw corpus and artifacts;
@@ -150,7 +150,7 @@ No Kubernetes unless justified by explicit operational requirements.
 1. Build local logic and tests first.
 2. Keep AWS calls behind interfaces/adapters.
 3. Use mocks/fakes for local tests.
-4. Use Bedrock calls only in explicit integration checks.
+4. Use Google Gemini calls only in explicit integration checks.
 5. Avoid creating real AWS infrastructure unless explicitly requested.
 
 ## Recommended Answer for the Assignment
@@ -158,6 +158,6 @@ No Kubernetes unless justified by explicit operational requirements.
 Use this phrasing:
 
 ```text
-Development should be local-first with Docker Compose for FastAPI, Redis, sample corpus, and an OpenSearch-compatible retrieval adapter. Local OpenSearch should be used if feasible to validate mapping/query compatibility; a mock fallback is acceptable only when local machine limits block progress. AWS is used during development only for managed model API compatibility checks against Bedrock models such as Claude Haiku/Sonnet, Cohere Embed, and Cohere Rerank. Full AWS infrastructure deployment is optional and not required for the assessment. If deployment is later needed, use a light AWS path: Lambda + API Gateway + Mangum or ECS/App Runner for FastAPI, OpenSearch Service, ElastiCache Redis, S3, Bedrock, IAM, Secrets Manager/SSM, and CloudWatch/OpenTelemetry.
+Development should be local-first with Docker Compose for FastAPI, Redis, sample corpus, and an OpenSearch-compatible retrieval adapter. Local OpenSearch should be used if feasible to validate mapping/query compatibility; a mock fallback is acceptable only when local machine limits block progress. AWS is used during development only for managed model API compatibility checks against Google Gemini models such as Claude Haiku/Sonnet, Cohere Embed, and Cohere Rerank. Full AWS infrastructure deployment is optional and not required for the assessment. If deployment is later needed, use a light AWS path: Lambda + API Gateway + Mangum or ECS/App Runner for FastAPI, OpenSearch Service, ElastiCache Redis, S3, Google Gemini, IAM, Secrets Manager/SSM, and CloudWatch/OpenTelemetry.
 ```
 

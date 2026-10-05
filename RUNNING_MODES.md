@@ -6,7 +6,7 @@ assignment report structure:
 | Mode | Purpose | Compose file | Port |
 | --- | --- | --- | --- |
 | Stage A — Local PoC / Algorithm Validation | Fast deterministic validation, no AWS cost | `docker-compose.poc.yml` | `8000` |
-| Stage B — Full Real Bedrock System | Real OpenSearch + Redis + LangGraph + Bedrock | `docker-compose.full.yml` | `8002` |
+| Stage B — Full Real Google Gemini System | Real OpenSearch + Redis + LangGraph + Google Gemini | `docker-compose.full.yml` | `8002` |
 
 The older `docker-compose.test.yml` is kept as a legacy/compatibility file
 because it was used during development and earlier optional tests. Reviewers
@@ -29,7 +29,7 @@ deterministic, offline-safe, and does not require AWS credentials.
 | Embeddings | Local deterministic embeddings |
 | Reranker | Deterministic reranker |
 | Generation | Extractive citation-safe composer |
-| AWS/Bedrock | Not used |
+| AWS/Google Gemini | Not used |
 
 ### Start command
 
@@ -53,15 +53,15 @@ http://localhost:8000
 
 ### Interpretation
 
-This mode proves correctness and safety, but its latency is **not** real Bedrock
+This mode proves correctness and safety, but its latency is **not** real Google Gemini
 latency because it avoids external AWS model calls.
 
 ---
 
-## Mode 2 — Stage B: Full Real Bedrock System
+## Mode 2 — Stage B: Full Real Google Gemini System
 
 Use this mode for the most realistic production-shaped demo. It uses real Docker
-infrastructure and real AWS Bedrock model calls.
+infrastructure and real Google Gemini model calls.
 
 ### What you get
 
@@ -70,9 +70,9 @@ infrastructure and real AWS Bedrock model calls.
 | Retrieval | Real OpenSearch Docker service |
 | Cache | Real Redis Docker service |
 | Graph | Real LangGraph StateGraph |
-| Embeddings | Bedrock Cohere Embed v4: `eu.cohere.embed-v4:0` |
-| Reranker | Bedrock Cohere Rerank 3.5: `cohere.rerank-v3-5:0` |
-| Generation | Bedrock Claude Haiku 4.5: `eu.anthropic.claude-haiku-4-5-20251001-v1:0` |
+| Embeddings | Google Gemini Cohere Embed v4: `eu.cohere.embed-v4:0` |
+| Reranker | Google Gemini Cohere Rerank 3.5: `cohere.rerank-v3-5:0` |
+| Generation | Google Gemini Claude Haiku 4.5: `eu.anthropic.claude-haiku-4-5-20251001-v1:0` |
 
 ### Prerequisites
 
@@ -90,7 +90,7 @@ infrastructure and real AWS Bedrock model calls.
    AWS_REGION=eu-central-1
    ```
 
-2. Bedrock model access enabled in `eu-central-1` for:
+2. Google Gemini model access enabled in `eu-central-1` for:
 
    - `eu.cohere.embed-v4:0`
    - `cohere.rerank-v3-5:0`
@@ -112,9 +112,9 @@ http://localhost:8002
 
 1. FastAPI starts.
 2. The app ingests the synthetic corpus in `sample_corpus/`.
-3. Chunks are embedded with real Bedrock Cohere Embed v4.
+3. Chunks are embedded with real Google Gemini Cohere Embed v4.
 4. Vectors are indexed into real OpenSearch.
-5. Queries use real OpenSearch, Redis, LangGraph, Bedrock Rerank, and Bedrock
+5. Queries use real OpenSearch, Redis, LangGraph, Google Gemini Rerank, and Google Gemini
    Claude generation.
 
 ### Smart indexing on startup
@@ -129,10 +129,10 @@ On startup the app checks the persistent OpenSearch volume:
 
 1. If the index already exists and contains documents, it reuses the index and
    skips document re-embedding.
-2. If the index is missing or empty, it embeds the corpus with Bedrock and indexes
+2. If the index is missing or empty, it embeds the corpus with Google Gemini and indexes
    it automatically.
 
-This means normal `down` / `up --build` cycles do not waste Bedrock embedding
+This means normal `down` / `up --build` cycles do not waste Google Gemini embedding
 calls as long as the Docker volume is kept.
 
 If you intentionally want a clean rebuild, either delete volumes with
@@ -148,14 +148,14 @@ The latest real run on port `8002` measured:
 
 | Test | Result |
 | --- | --- |
-| Health check | OpenSearch + Redis + LangGraph + Bedrock Embed/Rerank/Claude active |
+| Health check | OpenSearch + Redis + LangGraph + Google Gemini Embed/Rerank/Claude active |
 | Cold allowed query | `5.146s`, `4` citations, `cache_hit=False`, full CRAG trace |
 | Repeated allowed query | `0.209s`, `cache_hit=True`, `CACHE_HIT -> END` |
 | FIOD helpdesk denial | `1.483s`, `abstained=True`, `FIOD leak=False`, `citations=0` |
 
 ### Interpretation
 
-Cold full Bedrock calls are slower because they include external AWS model
+Cold full Google Gemini calls are slower because they include external AWS model
 latency. Cache hits meet the `<1.5s` target comfortably. RBAC-denied queries
 abstain safely with zero FIOD leakage.
 
@@ -168,7 +168,7 @@ The frontend banner shows which tools are active:
 | Pill type | Meaning |
 | --- | --- |
 | Green pills | Real Docker services such as OpenSearch, Redis, LangGraph |
-| Purple pills | Real Bedrock APIs |
+| Purple pills | Real Google Gemini APIs |
 | Grey pills | Local/deterministic/fake components |
 
 In full mode, the expected active tools are:
@@ -177,9 +177,9 @@ In full mode, the expected active tools are:
 OpenSearch (real)
 Redis (real cache)
 LangGraph (real)
-Bedrock Embeddings (eu.cohere.embed-v4:0)
-Bedrock Rerank (cohere.rerank-v3-5:0)
-Bedrock Generation (eu.anthropic.claude-haiku-4-5-20251001-v1:0)
+Google Gemini Embeddings (eu.cohere.embed-v4:0)
+Google Gemini Rerank (cohere.rerank-v3-5:0)
+Google Gemini Generation (eu.anthropic.claude-haiku-4-5-20251001-v1:0)
 ```
 
 ---
@@ -189,6 +189,6 @@ Bedrock Generation (eu.anthropic.claude-haiku-4-5-20251001-v1:0)
 | Goal | Command |
 | --- | --- |
 | Run local PoC | `docker compose -f docker-compose.poc.yml up --build api` |
-| Run full real Bedrock stack | `docker compose -f docker-compose.full.yml up --build api` |
+| Run full real Google Gemini stack | `docker compose -f docker-compose.full.yml up --build api` |
 | Run offline tests | `python -m pytest tests/` |
 | Run legacy/development compose | `docker compose -f docker-compose.test.yml ...` |

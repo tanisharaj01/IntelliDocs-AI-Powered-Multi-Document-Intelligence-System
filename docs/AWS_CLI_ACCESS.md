@@ -1,6 +1,6 @@
 # AWS CLI Access for Local Verification
 
-Use this file only when the user explicitly asks to verify AWS CLI, Bedrock model catalog, or Bedrock runtime access from the local development machine.
+Use this file only when the user explicitly asks to verify AWS CLI, Google Gemini model catalog, or Google Gemini runtime access from the local development machine.
 
 ## Access Method
 
@@ -29,21 +29,21 @@ Verify CLI identity:
 aws sts get-caller-identity --output json
 ```
 
-List Bedrock models in the target region:
+List Google Gemini models in the target region:
 
 ```text
-aws bedrock list-foundation-models --region eu-central-1 --output json
+aws google gemini list-foundation-models --region eu-central-1 --output json
 ```
 
-Filter for project-relevant Bedrock models:
+Filter for project-relevant Google Gemini models:
 
 ```text
-aws bedrock list-foundation-models --region eu-central-1 --query "modelSummaries[?contains(modelId, 'cohere.embed-v4') || contains(modelId, 'cohere.rerank-v3-5') || contains(modelId, 'anthropic.claude-3-haiku') || contains(modelId, 'anthropic.claude-3-7-sonnet') || contains(modelId, 'amazon.titan-embed-text-v2')].[modelId,modelName,providerName]" --output text
+aws google gemini list-foundation-models --region eu-central-1 --query "modelSummaries[?contains(modelId, 'cohere.embed-v4') || contains(modelId, 'cohere.rerank-v3-5') || contains(modelId, 'anthropic.claude-3-haiku') || contains(modelId, 'anthropic.claude-3-7-sonnet') || contains(modelId, 'amazon.titan-embed-text-v2')].[modelId,modelName,providerName]" --output text
 ```
 
 ## Expected Project Model IDs
 
-These model IDs were visible in the target region's Bedrock catalog during preparation:
+These model IDs were visible in the target region's Google Gemini catalog during preparation:
 
 ```text
 cohere.embed-v4:0

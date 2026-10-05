@@ -15,7 +15,7 @@ Produce a polished technical design for an enterprise RAG architecture over roug
 - OpenSearch hybrid lexical + vector retrieval
 - S3 for raw documents and ingestion artifacts
 - Redis conservative semantic cache
-- Bedrock or another enterprise-approved model API
+- Google Gemini or another enterprise-approved model API
 - DeepEval as the primary evaluation framework, with standard RAG metric definitions and OpenTelemetry/structured traces for observability
 - GitHub Actions and Docker Compose
 
@@ -49,9 +49,9 @@ This repository contains Claude commands, skills, documentation outlines, minima
 
 Read [`CLAUDE.md`](../CLAUDE.md) and this brief, then expand the module documents into a final technical assessment. Implementation is useful but secondary to architecture. A local PoC can validate the approach, but full deployment is not required.
 
-Operational note: if the user explicitly asks to verify local AWS CLI or Bedrock access, use [`docs/AWS_CLI_ACCESS.md`](AWS_CLI_ACCESS.md). Do not copy secrets into committed files.
+Operational note: if the user explicitly asks to verify local AWS CLI or Google Gemini access, use [`docs/AWS_CLI_ACCESS.md`](AWS_CLI_ACCESS.md). Do not copy secrets into committed files.
 
-Development/deployment strategy: follow [`docs/DEVELOPMENT_DEPLOYMENT_STRATEGY.md`](DEVELOPMENT_DEPLOYMENT_STRATEGY.md). Prefer local-first development and tests; use AWS only for explicit Bedrock/API compatibility checks or if deployment is requested.
+Development/deployment strategy: follow [`docs/DEVELOPMENT_DEPLOYMENT_STRATEGY.md`](DEVELOPMENT_DEPLOYMENT_STRATEGY.md). Prefer local-first development and tests; use AWS only for explicit Google Gemini/API compatibility checks or if deployment is requested.
 
 Prompt files for the user are available in [`prompts/STAGE_1_LOCAL_POC_PROMPT.md`](../prompts/STAGE_1_LOCAL_POC_PROMPT.md) and [`prompts/FINAL_ASSESSMENT_WRITING_PROMPT.md`](../prompts/FINAL_ASSESSMENT_WRITING_PROMPT.md).
 
