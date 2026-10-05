@@ -72,3 +72,5 @@ flowchart LR
 
 [![Architecture diagram of tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system/diagram.png)](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system?utm_source=readme&utm_medium=picture)
 
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system?utm_source=readme&utm_medium=badge)
+
