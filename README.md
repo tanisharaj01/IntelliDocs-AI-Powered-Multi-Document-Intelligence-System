@@ -69,3 +69,6 @@ flowchart LR
 - "Summarize the key findings in the introduction section."
 - "What is the capital of France?" -> *System will abstain to prevent hallucinations.*
 
+
+[![Architecture diagram of tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system/diagram.png)](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system?utm_source=readme&utm_medium=picture)
+
