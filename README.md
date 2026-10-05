@@ -21,18 +21,9 @@ Organizations have vast amounts of knowledge locked inside unstructured document
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    A[User / Streamlit UI] -->|Upload PDF| B(FastAPI Backend)
-    B -->|Text Extraction| C[PyMuPDF Chunker]
-    C -->|Embeddings| D[Vector Store]
-    
-    A -->|Ask Question| E(FastAPI Backend)
-    E -->|Embed Query| F[Hybrid Search]
-    F -->|Candidates| G[Reranker]
-    G -->|Top Context| H[LLM Generation]
-    H -->|Answer + Citations| A
-```
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system?utm_source=readme&utm_medium=badge)
+
+[![Architecture diagram of tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system/diagram.png)](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system?utm_source=readme&utm_medium=picture)
 
 ## Tech Stack
 - **Frontend**: Streamlit
@@ -68,9 +59,3 @@ flowchart LR
 - "How did it change from last year?" (Follow-up)
 - "Summarize the key findings in the introduction section."
 - "What is the capital of France?" -> *System will abstain to prevent hallucinations.*
-
-
-[![Architecture diagram of tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system/diagram.png)](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system?utm_source=readme&utm_medium=picture)
-
-[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/tanisharaj01/intellidocs-ai-powered-multi-document-intelligence-system?utm_source=readme&utm_medium=badge)
-
